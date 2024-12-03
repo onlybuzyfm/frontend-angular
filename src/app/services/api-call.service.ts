@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class ApiCallService {
 
   private apiUrl='http://127.0.0.1:8000/'

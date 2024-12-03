@@ -1,1 +1,22 @@
-<button class="btn btn-primary">books-list works again!</button>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Author</th>
+        <th scope="col">Title</th>
+        <th scope="col">Category</th>
+        <th scope="col">Created</th>
+      </tr>
+    </thead>
+    <tbody *ngFor= "let book of books" >
+      <tr>
+        <th scope="row">{{book.id}}</th>
+        <td>{{book.author}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.category}}</td>
+        <td>{{book.timestamp}}</td>
+      </tr>
+    </tbody>
+  </table>
