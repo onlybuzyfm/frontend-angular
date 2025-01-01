@@ -21,4 +21,11 @@ export class ApiCallService {
   deleteBook(id: number): Observable<Book[]> {
     return this.http.delete<Book[]>(`${this.apiUrl}books/${id}/`)
   }
+
+  addBook(newBook: Book): Observable<Book[]> {
+    return this.http.post<Book[]>(`${this.apiUrl}books/`,newBook)
+  }
+
+
+  
 }

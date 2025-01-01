@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from '../../services/api-call.service';
 import { Book } from '../../models/book';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { error } from 'console';
 
@@ -9,14 +10,15 @@ import { error } from 'console';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './books-list.component.html',
-  styleUrl: './books-list.component.css'
+  styleUrls: ['./books-list.component.css']
 })
 export class BooksListComponent implements OnInit {
 
   books: Book[] = []
 
   constructor(
-    private apiService: ApiCallService
+    private apiService: ApiCallService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -42,6 +44,10 @@ export class BooksListComponent implements OnInit {
         console.error(`Error while deleting book ${bookId}`,err);
       }}
     )
+  }
+
+  addNewBook(){
+    this.router.navigate(['/new-book']);
   }
 
 }
