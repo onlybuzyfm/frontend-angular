@@ -46,6 +46,10 @@ export class BooksListComponent implements OnInit {
     )
   }
 
+  updateBook(bookId:number){
+    this.router.navigate(['new-book',{id:bookId}])
+  }
+
   addNewBook(){
     this.router.navigate(['/new-book']);
   }

@@ -16,14 +16,16 @@
     </div>
     <div class="mb-3">
         <label for="category" class="form-label">Book Category</label>
-        <input type="text" class="form-control" id="category" placeholder="" formControlName="category" required>
+        <select id="category" class="form-control form-select "  formControlName="category" required>
+            <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+        </select>
         <div *ngIf="bookForm.get('category')?.hasError('required') && bookForm.get('category')?.touched" class="text-danger">    
             This Book needs a category
         </div>
     </div>
 
     <button class="btn btn-secondary m-1" (click)="goToBookList()">Back</button>
-    <button [disabled]="!bookForm.valid" class="btn btn-success m-1" type="submit">Add New Book</button>
+    <button [disabled]="!bookForm.valid" class="btn btn-success m-1" type="submit">{{isUpdateMode? 'Update Book': 'Add New Book'}}</button>
 
     </form>
 

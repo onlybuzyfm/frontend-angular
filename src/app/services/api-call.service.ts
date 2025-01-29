@@ -23,9 +23,17 @@ export class ApiCallService {
   }
 
   addBook(newBook: Book): Observable<Book[]> {
-    return this.http.post<Book[]>(`${this.apiUrl}books/`,newBook)
+    return this.http.post<Book[]>(`${this.apiUrl}books/`, newBook)
   }
 
+  getBookById(id: string): Observable<Book> {
+    return this.http.get<Book>(`${this.apiUrl}books/${id}`)
+  }
 
-  
+  updateBook(id: string, updateBook: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.apiUrl}books/${id}/`, updateBook)
+  }
 }
+
+
+
